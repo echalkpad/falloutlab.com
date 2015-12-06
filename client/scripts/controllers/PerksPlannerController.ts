@@ -2,7 +2,7 @@
 
 import {Component, View, Inject} from 'angular2/angular2';
 import {PerksPlannerComponent} from '../components/PerksPlannerComponent';
-import {PlayerResource, CurrentPlayerModel} from '../models/PlayerModel';
+import {CurrentPlayerModel} from '../models/PlayerModel';
 
 @Component({
   //  selector: 'home'
@@ -12,7 +12,7 @@ import {PlayerResource, CurrentPlayerModel} from '../models/PlayerModel';
 @View({
     template: `
         <div>
-            <perks-planner />
+            <perks-planner></perks-planner>
         </div>
     `,
     directives: [PerksPlannerComponent]

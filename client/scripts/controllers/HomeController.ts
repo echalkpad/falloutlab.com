@@ -10,7 +10,7 @@ import {TerminalComponent} from '../components/TerminalComponent';
 @View({
     template: `
         <div>
-            <terminal />
+            <terminal></terminal>
         </div>
     `,
     directives: [TerminalComponent]

@@ -20,7 +20,7 @@ var PerksPlannerController = (function () {
     PerksPlannerController = __decorate([
         angular2_1.Component({}),
         angular2_1.View({
-            template: "\n        <div>\n            <perks-planner />\n        </div>\n    ",
+            template: "\n        <div>\n            <perks-planner></perks-planner>\n        </div>\n    ",
             directives: [PerksPlannerComponent_1.PerksPlannerComponent]
         }),
         __param(0, angular2_1.Inject(PlayerModel_1.CurrentPlayerModel))

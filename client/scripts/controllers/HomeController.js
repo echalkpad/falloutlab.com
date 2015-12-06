@@ -15,7 +15,7 @@ var HomeController = (function () {
     HomeController = __decorate([
         angular2_1.Component({}),
         angular2_1.View({
-            template: "\n        <div>\n            <terminal />\n        </div>\n    ",
+            template: "\n        <div>\n            <terminal></terminal>\n        </div>\n    ",
             directives: [TerminalComponent_1.TerminalComponent]
         })
     ], HomeController);
