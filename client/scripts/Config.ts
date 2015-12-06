@@ -7,7 +7,7 @@ export class Config {
         }
 
         if (window.location.host === 'falloutlab.local') {
-            this.apiUrl = 'https://api.falloutlab.local';
+            this.apiUrl = 'http://api.falloutlab.local';
         }
 
         if (window.location.host === '127.0.0.1:8080') {

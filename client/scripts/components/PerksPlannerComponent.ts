@@ -7,35 +7,31 @@ import {PerksPlannerTableComponent} from './PerksPlannerTableComponent';
 
 @Component({
     selector: 'perks-planner',
-//    properties: ['playerModel'],
     providers: [PerkResource]
 })
 
 @View({
     template: `
-        <article class="uk-article">
             <h1 class="uk-article-title">
                 <h1>Perks Planner</h1>
             </h1>
-
             <perks-planner-table [perks]="currentPerks" name="Current Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
             <perks-planner-table [perks]="availablePerks" name="Available Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
             <perks-planner-table [perks]="blockedPerks" name="Blocked Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
             <perks-planner-table [perks]="dislikePerks" name="Dislike Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
-        </article>
     `,
     directives: [NgFor, NgIf, PerksPlannerTableComponent]
 })
 
 export class PerksPlannerComponent {
-    allPerks: Array<PerkModel> = [];
     perkResource: PerkResource;
     playerModel: CurrentPlayerModel;
-    currentPerks: Array<PlayerPerk> = [];
-    availablePerks: Array<PlayerPerk> = [];
-    blockedPerks: Array<PlayerPerk> = [];
-    dislikePerks: Array<PlayerPerk> = [];
-    dependeciesList: Array<PerkModel> = [];
+    allPerks:        Array<PerkModel>  = [];
+    currentPerks:    Array<PlayerPerk> = [];
+    availablePerks:  Array<PlayerPerk> = [];
+    blockedPerks:    Array<PlayerPerk> = [];
+    dislikePerks:    Array<PlayerPerk> = [];
+    dependeciesList: Array<PerkModel>  = [];
 
     constructor( @Inject(PerkResource) perkResource: PerkResource, @Inject(CurrentPlayerModel) currentPlayerModel: CurrentPlayerModel) {
         this.perkResource = perkResource;

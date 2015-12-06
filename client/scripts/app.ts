@@ -32,14 +32,7 @@ export class App {
         this.playerModel = currentPlayerModel;
         this.playerResource = playerResource;
 
-        // var fromLocalStorage = localStorage.getItem('currentPlayer');
         var fromLocalStorageId = localStorage.getItem('currentPlayerId');
-
-        // console.log('ID', fromLocalStorageId);
-
-        // if (fromLocalStorage) {
-        //     this.playerModel.setData(JSON.parse(fromLocalStorage));
-        // }
 
         if (fromLocalStorageId) {
             this.loadByEmail(JSON.parse(fromLocalStorageId))
@@ -58,9 +51,8 @@ export class App {
             if (this.playerModel.id) {
                 this.playerResource.upsert(this.playerModel)
                     .then((record: CurrentPlayerModel) => {
-                        console.log(record);
                         this.playerModel.setData(record);
-                        console.log('HHH', JSON.stringify(record.id));
+
                         localStorage.setItem('currentPlayerId', JSON.stringify(record.userId));
                     });
             } else {
@@ -68,13 +60,15 @@ export class App {
                     .then(record => {
                         if (record) {
                             localStorage.setItem('currentPlayerId', JSON.stringify(record.userId));
+
                             this.playerModel.setData(record);
+
+                            this.playerModel.updated();
                         } else {
                             this.playerResource.upsert(this.playerModel)
                                 .then((record: CurrentPlayerModel) => {
-                                    console.log(record);
                                     this.playerModel.setData(record);
-                                    console.log('HHH', JSON.stringify(record.id));
+
                                     localStorage.setItem('currentPlayerId', JSON.stringify(record.userId));
                                 });
                         }
@@ -82,25 +76,6 @@ export class App {
                         console.log(err);
                     });
             }
-            // if (this.playerModel.userId) {
-            //     this.playerResource.find({
-            //         where: {
-            //             userId: JSON.parse(fromLocalStorageId)
-            //         }
-            //     }).then((record: Array<CurrentPlayerModel>) => {
-            //         if (record[0].id) {
-            //             this.playerModel.setData(record[0]);
-            //         }
-            //     }).then(user)
-                // this.playerResource.upsert(this.playerModel)
-                //     .then((record: CurrentPlayerModel) => {
-                //         console.log(record);
-                //         this.playerModel.setData(record);
-                //         console.log('HHH', JSON.stringify(record.id));
-                //         localStorage.setItem('currentPlayerId', JSON.stringify(record.userId));
-                //     });
-//            }
-//            localStorage.setItem('currentPlayer', JSON.stringify(this.playerModel));
         });
 
         this.playerModel = currentPlayerModel;

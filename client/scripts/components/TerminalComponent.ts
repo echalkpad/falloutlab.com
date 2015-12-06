@@ -8,9 +8,6 @@ import {Component, View, NgFor, NgIf} from 'angular2/angular2';
 
 @View({
     template: `
-        <article class="uk-article">
-            <!--div><router-outlet></router-outlet></div-->
-
             <h1 class="uk-article-title">
                 <h1>Terminal Unlock</h1>
                 <button class="uk-button uk-button-danger" *ng-if="wordLength > 0" (click)="clear(inputword)">Clear all</button>
@@ -37,7 +34,6 @@ import {Component, View, NgFor, NgIf} from 'angular2/angular2';
                    </li>
                 </ul>
             </div>
-        </article>
     `,
     directives: [NgFor, NgIf]
 })
