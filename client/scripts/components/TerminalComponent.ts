@@ -9,17 +9,23 @@ import {Component, View, NgFor, NgIf} from 'angular2/angular2';
 @View({
     template: `
             <h1 class="uk-article-title">
-                <h1>Terminal Unlock</h1>
-                <button class="uk-button uk-button-danger" *ng-if="wordLength > 0" (click)="clear(inputword)">Clear all</button>
+                <h1>Terminal Unlock / Hack</h1>
+                <blockquote>Just input first word in the input field below and you will see options for that word.</blockquote>
             </h1>
             <div>
-                <h4>Check word:</h4>
+                <h4>Check an entry: <button class="uk-button uk-button-danger" *ng-if="wordLength > 0" (click)="clear(inputword)">Clear all</button></h4>
                 <div class="uk-form">
                     <fieldset>
-                        <input #inputword (keyup)="doneTyping($event)" placeholder="Add first word here..." class="uk-form-width-medium">
+                        <div>
+                        <fieldset class="uk-form">
+                            <input #inputword (keyup)="doneTyping($event)" placeholder="Add first word here..." class="uk-form-width-medium">
+                        </fieldset>
                         <span *ng-if="buttons(inputword.value)" class="{{checkStatus(inputword.value, 'color')}}">{{checkStatus(inputword.value, 'text')}}</span>
-                        <span *ng-for="#button of buttons(inputword.value)" ><button (click)="onTopButtonClick(inputword, button)" class="uk-button">{{button.name}}</button></span>
+                        </div>
+                        <div *ng-if="buttons(inputword.value) && inputword.value">How many correct letters?<br />
+                        <span *ng-for="#button of buttons(inputword.value)" ><button (click)="onTopButtonClick(inputword, button)" class="uk-button">{{button.name}}</button>&nbsp;</span>
                         <span *ng-if="buttons(inputword.value)"><button class="uk-button uk-button-primary" (click)="addWord(inputword)">Skip</button></span>
+                        </div>
                     </fieldset>
                  </div>
                  <h4>History:</h4>
@@ -146,11 +152,11 @@ export class TerminalComponent {
         var result = {
             'ok': {
                 'color': 'uk-text-success',
-                'text': 'POSSIBLE'
+                'text': 'TRY THIS WORD'
             },
             'fail': {
                 'color': 'uk-text-danger',
-                'text': 'NOT POSSIBLE'
+                'text': 'THAT ONE IS INCORRECT'
             },
             'empty': {
                 'color': '',

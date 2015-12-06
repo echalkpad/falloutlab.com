@@ -15,8 +15,8 @@ import {PerksPlannerTableComponent} from './PerksPlannerTableComponent';
             <h1 class="uk-article-title">
                 <h1>Perks Planner</h1>
             </h1>
-            <perks-planner-table [perks]="currentPerks" name="Current Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
             <perks-planner-table [perks]="availablePerks" name="Available Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
+            <perks-planner-table [perks]="currentPerks" name="Current Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
             <perks-planner-table [perks]="blockedPerks" name="Blocked Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
             <perks-planner-table [perks]="dislikePerks" name="Dislike Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
     `,
