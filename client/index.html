@@ -26,7 +26,11 @@
     <script>
         System.config({
           packages: {
-            'scripts': {defaultExtension: 'js'}
+            'scripts': {defaultExtension: 'js'},
+            'bower_components/rxjs': {defaultExtension: 'js'}
+          },
+          paths: {
+              'rxjs/*' : 'bower_components/rxjs/*.js'
           }
         });
 

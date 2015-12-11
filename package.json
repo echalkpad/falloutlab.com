@@ -8,7 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular2": "2.0.0-alpha.47",
+    "angular2": "2.0.0-alpha.52",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "loopback": "^2.22.0",

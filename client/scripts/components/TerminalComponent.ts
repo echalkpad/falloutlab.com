@@ -8,32 +8,30 @@ import {Component, View, NgFor, NgIf} from 'angular2/angular2';
 
 @View({
     template: `
-            <h1 class="uk-article-title">
-                <h1>Terminal Unlock / Hack</h1>
-                <blockquote>Just input first word in the input field below and you will see options for that word.</blockquote>
-            </h1>
+            <h1>Terminal Unlock / Hack</h1>
+            <blockquote>Just input first word in the input field below and you will see options for that word.</blockquote>
             <div>
-                <h4>Check an entry: <button class="uk-button uk-button-danger" *ng-if="wordLength > 0" (click)="clear(inputword)">Clear all</button></h4>
+                <h4>Check an entry: <button class="uk-button uk-button-danger" *ngIf="wordLength > 0" (click)="clear(inputword)">Clear all</button></h4>
                 <div class="uk-form">
                     <fieldset>
                         <div>
                         <fieldset class="uk-form">
                             <input #inputword (keyup)="doneTyping($event)" placeholder="Add first word here..." class="uk-form-width-medium">
                         </fieldset>
-                        <span *ng-if="buttons(inputword.value)" class="{{checkStatus(inputword.value, 'color')}}">{{checkStatus(inputword.value, 'text')}}</span>
+                        <span *ngIf="buttons(inputword.value)" class="{{checkStatus(inputword.value, 'color')}}">{{checkStatus(inputword.value, 'text')}}</span>
                         </div>
-                        <div *ng-if="buttons(inputword.value) && inputword.value">How many correct letters?<br />
-                        <span *ng-for="#button of buttons(inputword.value)" ><button (click)="onTopButtonClick(inputword, button)" class="uk-button">{{button.name}}</button>&nbsp;</span>
-                        <span *ng-if="buttons(inputword.value)"><button class="uk-button uk-button-primary" (click)="addWord(inputword)">Skip</button></span>
+                        <div *ngIf="buttons(inputword.value) && inputword.value">How many correct letters?<br />
+                        <span *ngFor="#button of buttons(inputword.value)" ><button (click)="onTopButtonClick(inputword, button)" class="uk-button">{{button.name}}</button>&nbsp;</span>
+                        <span *ngIf="buttons(inputword.value)"><button class="uk-button uk-button-primary" (click)="addWord(inputword)">Skip</button></span>
                         </div>
                     </fieldset>
                  </div>
                  <h4>History:</h4>
                 <ul class="uk-list">
-                   <li *ng-for="#word of words">
+                   <li *ngFor="#word of words">
                    <div class="uk-grid">
                         <div class="uk-width-2-10"><b>{{ word.text }}</b></div>
-                        <div class="uk-width-5-10"><span *ng-for="#button of buttons()" ><button (click)="onButtonClick(word, button)" class="uk-button {{buttonColor(word, button)}}">{{button.name}}</button> </span></div>
+                        <div class="uk-width-5-10"><span *ngFor="#button of buttons()" ><button (click)="onButtonClick(word, button)" class="uk-button {{buttonColor(word, button)}}">{{button.name}}</button> </span></div>
                         <div class="uk-width-2-10 {{checkStatus(word.text, 'color')}}">{{checkStatus(word.text, 'text')}}</div>
                         <div class="uk-width-1-10"><button class="uk-button uk-button-danger" (click)="delete(word)">delete</button></div>
                     </div>

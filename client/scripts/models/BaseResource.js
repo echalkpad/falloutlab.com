@@ -12,6 +12,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 var http_1 = require('angular2/http');
 var Config_1 = require('../Config');
 var angular2_1 = require('angular2/angular2');
+require('rxjs/add/operator/map');
 var BaseResource = (function () {
     function BaseResource(http) {
         this.http = http;

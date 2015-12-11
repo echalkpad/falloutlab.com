@@ -13,6 +13,11 @@ gulp.task('angular', function() {
   return gulp.src(['node_modules/angular2/**/*']).pipe(gulp.dest('client/bower_components/angular2'));
 });
 
+gulp.task('rxjs', function() {
+  // place code for your default task here
+  return gulp.src(['node_modules/rxjs/**/*']).pipe(gulp.dest('client/bower_components/rxjs'));
+});
+
 gulp.task('connect', function() {
   connect.server({
     root: 'client',
@@ -65,6 +70,7 @@ gulp.task('client', gulpsync.sync(
   [
     'install',
     'angular',
+    'rxjs',
     'typescript',
     [
       'connect', 'watch', 'server'

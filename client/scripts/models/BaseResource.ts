@@ -1,6 +1,7 @@
 import {Http, Headers} from 'angular2/http';
 import {Config} from '../Config';
 import {Inject} from 'angular2/angular2';
+import 'rxjs/add/operator/map';
 
 interface IFilter {
     include?: any;

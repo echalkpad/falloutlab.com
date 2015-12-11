@@ -5,13 +5,15 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {HomeController}         from './controllers/HomeController';
 import {PerksPlannerController} from './controllers/PerksPlannerController';
+import {CheatCodesController} from './controllers/CheatCodesController';
 import {PlayerModel, CurrentPlayerModel, PlayerResource} from './models/PlayerModel';
 import {PlayerStatsComponent}   from './components/PlayerStatsComponent';
 
 
 @RouteConfig([
     { path: '/', as: 'HomeController', component: HomeController },
-    { path: '/perks', as: 'PerksPlannerController', component: PerksPlannerController }
+    { path: '/perks', as: 'PerksPlannerController', component: PerksPlannerController },
+    { path: '/cheatcodes', as: 'CheatCodesController', component: CheatCodesController }
 ])
 
 @Component({

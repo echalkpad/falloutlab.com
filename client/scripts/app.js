@@ -14,6 +14,7 @@ var angular2_1 = require('angular2/angular2');
 var router_1 = require('angular2/router');
 var HomeController_1 = require('./controllers/HomeController');
 var PerksPlannerController_1 = require('./controllers/PerksPlannerController');
+var CheatCodesController_1 = require('./controllers/CheatCodesController');
 var PlayerModel_1 = require('./models/PlayerModel');
 var PlayerStatsComponent_1 = require('./components/PlayerStatsComponent');
 var App = (function () {
@@ -77,7 +78,8 @@ var App = (function () {
     App = __decorate([
         router_1.RouteConfig([
             { path: '/', as: 'HomeController', component: HomeController_1.HomeController },
-            { path: '/perks', as: 'PerksPlannerController', component: PerksPlannerController_1.PerksPlannerController }
+            { path: '/perks', as: 'PerksPlannerController', component: PerksPlannerController_1.PerksPlannerController },
+            { path: '/cheatcodes', as: 'CheatCodesController', component: CheatCodesController_1.CheatCodesController }
         ]),
         angular2_1.Component({
             selector: 'my-app',
