@@ -7,14 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
         case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
     }
 };
-var angular2_1 = require('angular2/angular2');
+var core_1 = require('angular2/core');
 var TerminalComponent_1 = require('../components/TerminalComponent');
 var HomeController = (function () {
     function HomeController() {
     }
     HomeController = __decorate([
-        angular2_1.Component({}),
-        angular2_1.View({
+        core_1.Component({}),
+        core_1.View({
             template: "\n        <div>\n            <terminal></terminal>\n        </div>\n    ",
             directives: [TerminalComponent_1.TerminalComponent]
         })

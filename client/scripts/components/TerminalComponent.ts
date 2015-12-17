@@ -1,6 +1,6 @@
 ///<reference path="../../bower_components/angular2/angular2.d.ts" />
 
-import {Component, View, NgFor, NgIf} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
 
 @Component({
     selector: 'terminal'
@@ -38,8 +38,7 @@ import {Component, View, NgFor, NgIf} from 'angular2/angular2';
                    </li>
                 </ul>
             </div>
-    `,
-    directives: [NgFor, NgIf]
+    `
 })
 
 

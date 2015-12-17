@@ -1,6 +1,6 @@
 ///<reference path="../../bower_components/angular2/bundles/typings/angular2/angular2.d.ts" />
 
-import {Component, View} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
 
 @Component({
 })

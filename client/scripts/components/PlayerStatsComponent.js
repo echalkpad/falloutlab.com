@@ -10,7 +10,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var angular2_1 = require('angular2/angular2');
+var core_1 = require('angular2/core');
 var PlayerModel_1 = require('../models/PlayerModel');
 var PlayerStatsComponent = (function () {
     function PlayerStatsComponent(currentPlayerModel) {
@@ -56,14 +56,13 @@ var PlayerStatsComponent = (function () {
         this.playerModel.updated();
     };
     PlayerStatsComponent = __decorate([
-        angular2_1.Component({
+        core_1.Component({
             selector: 'player-stats'
         }),
-        angular2_1.View({
-            templateUrl: 'scripts/components/PlayerStatsComponent.html',
-            directives: [angular2_1.NgFor, angular2_1.NgIf]
+        core_1.View({
+            templateUrl: 'scripts/components/PlayerStatsComponent.html'
         }),
-        __param(0, angular2_1.Inject(PlayerModel_1.CurrentPlayerModel))
+        __param(0, core_1.Inject(PlayerModel_1.CurrentPlayerModel))
     ], PlayerStatsComponent);
     return PlayerStatsComponent;
 })();

@@ -1,6 +1,6 @@
 ///<reference path="../../bower_components/angular2/angular2.d.ts" />
 
-import {Component, View, NgFor, NgIf, EventEmitter} from 'angular2/angular2';
+import {Component, View, EventEmitter} from 'angular2/core';
 import {PlayerPerk} from '../models/PerkModel';
 
 @Component({
@@ -39,8 +39,7 @@ import {PlayerPerk} from '../models/PerkModel';
             {{ playerPerk.perk.description }}
            </li>
         </ul>
-    `,
-    directives: [NgFor, NgIf]
+    `
 })
 
 export class PerksPlannerTableComponent {

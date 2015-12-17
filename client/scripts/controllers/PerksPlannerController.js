@@ -10,7 +10,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var angular2_1 = require('angular2/angular2');
+var core_1 = require('angular2/core');
 var PerksPlannerComponent_1 = require('../components/PerksPlannerComponent');
 var PlayerModel_1 = require('../models/PlayerModel');
 var PerksPlannerController = (function () {
@@ -18,12 +18,12 @@ var PerksPlannerController = (function () {
         this.playerModel = currentPlayerModel;
     }
     PerksPlannerController = __decorate([
-        angular2_1.Component({}),
-        angular2_1.View({
+        core_1.Component({}),
+        core_1.View({
             template: "\n        <div>\n            <perks-planner></perks-planner>\n        </div>\n    ",
             directives: [PerksPlannerComponent_1.PerksPlannerComponent]
         }),
-        __param(0, angular2_1.Inject(PlayerModel_1.CurrentPlayerModel))
+        __param(0, core_1.Inject(PlayerModel_1.CurrentPlayerModel))
     ], PerksPlannerController);
     return PerksPlannerController;
 })();

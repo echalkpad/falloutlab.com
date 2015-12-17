@@ -1,6 +1,6 @@
 ///<reference path="../../bower_components/angular2/angular2.d.ts" />
 
-import {Component, View, NgFor, NgIf, Inject} from 'angular2/angular2';
+import {Component, View, Inject} from 'angular2/core';
 import {PerkResource, PerkModel, PlayerPerk} from '../models/PerkModel';
 import {CurrentPlayerModel} from '../models/PlayerModel';
 import {PerksPlannerTableComponent} from './PerksPlannerTableComponent';
@@ -20,7 +20,7 @@ import {PerksPlannerTableComponent} from './PerksPlannerTableComponent';
             <perks-planner-table [perks]="blockedPerks" name="Blocked Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
             <perks-planner-table [perks]="dislikePerks" name="Dislike Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
     `,
-    directives: [NgFor, NgIf, PerksPlannerTableComponent]
+    directives: [PerksPlannerTableComponent]
 })
 
 export class PerksPlannerComponent {

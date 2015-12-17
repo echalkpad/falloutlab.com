@@ -1,6 +1,6 @@
 import {Http, Headers} from 'angular2/http';
 import {Config} from '../Config';
-import {Inject} from 'angular2/angular2';
+import {Inject} from 'angular2/core';
 import 'rxjs/add/operator/map';
 
 interface IFilter {
@@ -49,9 +49,9 @@ export abstract class BaseResource {
         return new Promise((resolve, reject) => {
             let url = this.config.apiUrl + '/api/' + this.modelName + '/get/' + id;
             // if (filter) {
-            //     url = url + "?filter=" + JSON.stringify(filter);
+            //     url = url + '?filter=' + JSON.stringify(filter);
 
-            //     console.log("URL", url);
+            //     console.log('URL', url);
             // }
 
             this.http.get(url)
@@ -70,7 +70,7 @@ export abstract class BaseResource {
         return new Promise((resolve, reject) => {
             let url = this.config.apiUrl + '/api/' + this.modelName;
             if (filter) {
-                url = url + "?filter=" + JSON.stringify(filter);
+                url = url + '?filter=' + JSON.stringify(filter);
             }
 
             this.http.get(url)
@@ -89,9 +89,9 @@ export abstract class BaseResource {
         return new Promise((resolve, reject) => {
             let url = this.config.apiUrl + '/api/' + this.modelName;
             // if (filter) {
-            //     url = url + "?filter=" + JSON.stringify(filter);
+            //     url = url + '?filter=' + JSON.stringify(filter);
 
-            //     console.log("URL", url);
+            //     console.log('URL', url);
             // }
             var headers = new Headers();
             headers.append('Content-Type', 'application/json');

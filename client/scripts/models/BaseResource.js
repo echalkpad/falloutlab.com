@@ -11,7 +11,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var http_1 = require('angular2/http');
 var Config_1 = require('../Config');
-var angular2_1 = require('angular2/angular2');
+var core_1 = require('angular2/core');
 require('rxjs/add/operator/map');
 var BaseResource = (function () {
     function BaseResource(http) {
@@ -49,8 +49,8 @@ var BaseResource = (function () {
         return new Promise(function (resolve, reject) {
             var url = _this.config.apiUrl + '/api/' + _this.modelName + '/get/' + id;
             // if (filter) {
-            //     url = url + "?filter=" + JSON.stringify(filter);
-            //     console.log("URL", url);
+            //     url = url + '?filter=' + JSON.stringify(filter);
+            //     console.log('URL', url);
             // }
             _this.http.get(url)
                 .map(function (res) { return res.json(); })
@@ -70,7 +70,7 @@ var BaseResource = (function () {
         return new Promise(function (resolve, reject) {
             var url = _this.config.apiUrl + '/api/' + _this.modelName;
             if (filter) {
-                url = url + "?filter=" + JSON.stringify(filter);
+                url = url + '?filter=' + JSON.stringify(filter);
             }
             _this.http.get(url)
                 .map(function (res) { return res.json(); })
@@ -89,8 +89,8 @@ var BaseResource = (function () {
         return new Promise(function (resolve, reject) {
             var url = _this.config.apiUrl + '/api/' + _this.modelName;
             // if (filter) {
-            //     url = url + "?filter=" + JSON.stringify(filter);
-            //     console.log("URL", url);
+            //     url = url + '?filter=' + JSON.stringify(filter);
+            //     console.log('URL', url);
             // }
             var headers = new http_1.Headers();
             headers.append('Content-Type', 'application/json');
@@ -109,7 +109,7 @@ var BaseResource = (function () {
         });
     };
     BaseResource = __decorate([
-        __param(0, angular2_1.Inject(http_1.Http))
+        __param(0, core_1.Inject(http_1.Http))
     ], BaseResource);
     return BaseResource;
 })();

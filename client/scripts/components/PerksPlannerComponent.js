@@ -10,7 +10,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var angular2_1 = require('angular2/angular2');
+var core_1 = require('angular2/core');
 var PerkModel_1 = require('../models/PerkModel');
 var PlayerModel_1 = require('../models/PlayerModel');
 var PerksPlannerTableComponent_1 = require('./PerksPlannerTableComponent');
@@ -141,16 +141,16 @@ var PerksPlannerComponent = (function () {
         });
     };
     PerksPlannerComponent = __decorate([
-        angular2_1.Component({
+        core_1.Component({
             selector: 'perks-planner',
             providers: [PerkModel_1.PerkResource]
         }),
-        angular2_1.View({
+        core_1.View({
             template: "\n            <h1 class=\"uk-article-title\">\n                <h1>Perks Planner</h1>\n            </h1>\n            <perks-planner-table [perks]=\"availablePerks\" name=\"Available Perks\" (like)=\"onPerkLike($event)\" (uncurrent)=\"onPerkUncurrent($event)\" (dislike)=\"onPerkDislike($event)\" (current)=\"onPerkCurrent($event)\"></perks-planner-table>\n            <perks-planner-table [perks]=\"currentPerks\" name=\"Current Perks\" (like)=\"onPerkLike($event)\" (uncurrent)=\"onPerkUncurrent($event)\" (dislike)=\"onPerkDislike($event)\" (current)=\"onPerkCurrent($event)\"></perks-planner-table>\n            <perks-planner-table [perks]=\"blockedPerks\" name=\"Blocked Perks\" (like)=\"onPerkLike($event)\" (uncurrent)=\"onPerkUncurrent($event)\" (dislike)=\"onPerkDislike($event)\" (current)=\"onPerkCurrent($event)\"></perks-planner-table>\n            <perks-planner-table [perks]=\"dislikePerks\" name=\"Dislike Perks\" (like)=\"onPerkLike($event)\" (uncurrent)=\"onPerkUncurrent($event)\" (dislike)=\"onPerkDislike($event)\" (current)=\"onPerkCurrent($event)\"></perks-planner-table>\n    ",
-            directives: [angular2_1.NgFor, angular2_1.NgIf, PerksPlannerTableComponent_1.PerksPlannerTableComponent]
+            directives: [PerksPlannerTableComponent_1.PerksPlannerTableComponent]
         }),
-        __param(0, angular2_1.Inject(PerkModel_1.PerkResource)),
-        __param(1, angular2_1.Inject(PlayerModel_1.CurrentPlayerModel))
+        __param(0, core_1.Inject(PerkModel_1.PerkResource)),
+        __param(1, core_1.Inject(PlayerModel_1.CurrentPlayerModel))
     ], PerksPlannerComponent);
     return PerksPlannerComponent;
 })();

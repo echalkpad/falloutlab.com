@@ -10,7 +10,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var angular2_1 = require('angular2/angular2');
+var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
 var HomeController_1 = require('./controllers/HomeController');
 var PerksPlannerController_1 = require('./controllers/PerksPlannerController');
@@ -81,16 +81,16 @@ var App = (function () {
             { path: '/perks', as: 'PerksPlannerController', component: PerksPlannerController_1.PerksPlannerController },
             { path: '/cheatcodes', as: 'CheatCodesController', component: CheatCodesController_1.CheatCodesController }
         ]),
-        angular2_1.Component({
+        core_1.Component({
             selector: 'my-app',
             providers: [PlayerStatsComponent_1.PlayerStatsComponent, PlayerModel_1.CurrentPlayerModel, PlayerModel_1.PlayerResource]
         }),
-        angular2_1.View({
+        core_1.View({
             templateUrl: 'views/app.html',
             directives: [[router_1.ROUTER_DIRECTIVES], PlayerStatsComponent_1.PlayerStatsComponent]
         }),
-        __param(0, angular2_1.Inject(PlayerModel_1.CurrentPlayerModel)),
-        __param(1, angular2_1.Inject(PlayerModel_1.PlayerResource))
+        __param(0, core_1.Inject(PlayerModel_1.CurrentPlayerModel)),
+        __param(1, core_1.Inject(PlayerModel_1.PlayerResource))
     ], App);
     return App;
 })();

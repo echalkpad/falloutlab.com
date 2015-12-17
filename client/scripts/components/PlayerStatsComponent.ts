@@ -1,6 +1,6 @@
 ///<reference path="../../bower_components/angular2/angular2.d.ts" />
 
-import {Component, View, NgFor, NgIf, Inject} from 'angular2/angular2';
+import {Component, View, Inject} from 'angular2/core';
 import {PlayerModel, CurrentPlayerModel} from '../models/PlayerModel';
 
 @Component({
@@ -8,8 +8,7 @@ import {PlayerModel, CurrentPlayerModel} from '../models/PlayerModel';
 })
 
 @View({
-    templateUrl: 'scripts/components/PlayerStatsComponent.html',
-    directives: [NgFor, NgIf]
+    templateUrl: 'scripts/components/PlayerStatsComponent.html'
 })
 
 export class PlayerStatsComponent {

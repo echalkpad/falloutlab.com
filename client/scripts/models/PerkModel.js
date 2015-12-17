@@ -15,7 +15,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 ///<reference path='../../bower_components/angular2/bundles/typings/angular2/angular2.d.ts' />
-var angular2_1 = require('angular2/angular2');
+var core_1 = require('angular2/core');
 var BaseResource_1 = require('./BaseResource');
 var http_1 = require('angular2/http');
 var PerkModel = (function () {
@@ -45,8 +45,8 @@ var PerkResource = (function (_super) {
         this.http = http;
     }
     PerkResource = __decorate([
-        angular2_1.Injectable(),
-        __param(0, angular2_1.Inject(http_1.Http))
+        core_1.Injectable(),
+        __param(0, core_1.Inject(http_1.Http))
     ], PerkResource);
     return PerkResource;
 })(BaseResource_1.BaseResource);
