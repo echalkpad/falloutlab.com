@@ -12,6 +12,8 @@ var TerminalComponent = (function () {
     function TerminalComponent() {
         this.words = [];
         this.wordLength = 0;
+        this.buttonList = [];
+        this.inputLength = 0;
     }
     TerminalComponent.prototype.showButtons = function () {
         var buttons = this.buttons();
@@ -120,6 +122,7 @@ var TerminalComponent = (function () {
     };
     TerminalComponent.prototype.buttons = function (word) {
         if (word === void 0) { word = ''; }
+        this.inputLength = word.length;
         if (!word && this.words.length === 0) {
             return;
         }
@@ -139,7 +142,8 @@ var TerminalComponent = (function () {
                 name: i
             });
         }
-        return buttons;
+        this.buttonList = buttons;
+        return this.buttonList;
     };
     TerminalComponent.prototype.addWord = function (element) {
         var text = element.value;
@@ -173,7 +177,7 @@ var TerminalComponent = (function () {
             selector: 'terminal'
         }),
         core_1.View({
-            template: "\n            <h1>Terminal Unlock / Hack</h1>\n            <blockquote>Just input first word in the input field below and you will see options for that word.</blockquote>\n            <div>\n                <h4>Check an entry: <button class=\"uk-button uk-button-danger\" *ngIf=\"wordLength > 0\" (click)=\"clear(inputword)\">Clear all</button></h4>\n                <div class=\"uk-form\">\n                    <fieldset>\n                        <div>\n                        <fieldset class=\"uk-form\">\n                            <input #inputword (keyup)=\"doneTyping($event)\" placeholder=\"Add first word here...\" class=\"uk-form-width-medium\">\n                        </fieldset>\n                        <span *ngIf=\"buttons(inputword.value)\" class=\"{{checkStatus(inputword.value, 'color')}}\">{{checkStatus(inputword.value, 'text')}}</span>\n                        </div>\n                        <div *ngIf=\"buttons(inputword.value) && inputword.value\">How many correct letters?<br />\n                        <span *ngFor=\"#button of buttons(inputword.value)\" ><button (click)=\"onTopButtonClick(inputword, button)\" class=\"uk-button\">{{button.name}}</button>&nbsp;</span>\n                        <span *ngIf=\"buttons(inputword.value)\"><button class=\"uk-button uk-button-primary\" (click)=\"addWord(inputword)\">Skip</button></span>\n                        </div>\n                    </fieldset>\n                 </div>\n                 <h4>History:</h4>\n                <ul class=\"uk-list\">\n                   <li *ngFor=\"#word of words\">\n                   <div class=\"uk-grid\">\n                        <div class=\"uk-width-2-10\"><b>{{ word.text }}</b></div>\n                        <div class=\"uk-width-5-10\"><span *ngFor=\"#button of buttons()\" ><button (click)=\"onButtonClick(word, button)\" class=\"uk-button {{buttonColor(word, button)}}\">{{button.name}}</button> </span></div>\n                        <div class=\"uk-width-2-10 {{checkStatus(word.text, 'color')}}\">{{checkStatus(word.text, 'text')}}</div>\n                        <div class=\"uk-width-1-10\"><button class=\"uk-button uk-button-danger\" (click)=\"delete(word)\">delete</button></div>\n                    </div>\n                   </li>\n                </ul>\n            </div>\n    "
+            template: "\n            <h1>Terminal Unlock / Hack</h1>\n            <blockquote>Just input first word in the input field below and you will see options for that word.</blockquote>\n            <div>\n                <h4>Check an entry: <button class=\"uk-button uk-button-danger\" *ngIf=\"wordLength > 0\" (click)=\"clear(inputword)\">Clear all</button></h4>\n                <div class=\"uk-form\">\n                    <fieldset>\n                        <div>\n                        <fieldset class=\"uk-form\">\n                            <input #inputword (keyup)=\"doneTyping($event)\" (keyup)=\"buttons(inputword.value)\" placeholder=\"Add first word here...\" class=\"uk-form-width-medium\">\n                        </fieldset>\n                        <span *ngIf=\"buttonList.length > 0\" class=\"{{checkStatus(inputword.value, 'color')}}\">{{checkStatus(inputword.value, 'text')}}</span>\n                        </div>\n                        <div *ngIf=\"buttonList && inputword.value && (buttonList.length == 0 || buttonList.length == inputLength + 1)\">How many correct letters? <br />\n                        <span *ngFor=\"#button of buttonList\" ><button (click)=\"onTopButtonClick(inputword, button)\" class=\"uk-button\">{{button.name}}</button>&nbsp;</span>\n                        <span *ngIf=\"buttonList\"><button class=\"uk-button uk-button-primary\" (click)=\"addWord(inputword)\">Skip</button></span>\n                        </div>\n                    </fieldset>\n                 </div>\n                 <h4>History:</h4>\n                <ul class=\"uk-list\">\n                   <li *ngFor=\"#word of words\">\n                   <div class=\"uk-grid\">\n                        <div class=\"uk-width-2-10\"><b>{{ word.text }}</b></div>\n                        <div class=\"uk-width-5-10\"><span *ngFor=\"#button of buttonList\" ><button (click)=\"onButtonClick(word, button)\" class=\"uk-button {{buttonColor(word, button)}}\">{{button.name}}</button> </span></div>\n                        <div class=\"uk-width-2-10 {{checkStatus(word.text, 'color')}}\">{{checkStatus(word.text, 'text')}}</div>\n                        <div class=\"uk-width-1-10\"><button class=\"uk-button uk-button-danger\" (click)=\"delete(word)\">delete</button></div>\n                    </div>\n                   </li>\n                </ul>\n            </div>\n    "
         })
     ], TerminalComponent);
     return TerminalComponent;

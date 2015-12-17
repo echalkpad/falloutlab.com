@@ -8,6 +8,6 @@ import {Config} from './Config';
 
 import {App} from './app';
 
-enableProdMode();
+//enableProdMode();
 
 bootstrap(App, [Config, HTTP_PROVIDERS, ROUTER_PROVIDERS, provide(APP_BASE_HREF, { useValue: '/' })]);

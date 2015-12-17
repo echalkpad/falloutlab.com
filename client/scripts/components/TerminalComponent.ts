@@ -16,13 +16,13 @@ import {Component, View} from 'angular2/core';
                     <fieldset>
                         <div>
                         <fieldset class="uk-form">
-                            <input #inputword (keyup)="doneTyping($event)" placeholder="Add first word here..." class="uk-form-width-medium">
+                            <input #inputword (keyup)="doneTyping($event)" (keyup)="buttons(inputword.value)" placeholder="Add first word here..." class="uk-form-width-medium">
                         </fieldset>
-                        <span *ngIf="buttons(inputword.value)" class="{{checkStatus(inputword.value, 'color')}}">{{checkStatus(inputword.value, 'text')}}</span>
+                        <span *ngIf="buttonList.length > 0" class="{{checkStatus(inputword.value, 'color')}}">{{checkStatus(inputword.value, 'text')}}</span>
                         </div>
-                        <div *ngIf="buttons(inputword.value) && inputword.value">How many correct letters?<br />
-                        <span *ngFor="#button of buttons(inputword.value)" ><button (click)="onTopButtonClick(inputword, button)" class="uk-button">{{button.name}}</button>&nbsp;</span>
-                        <span *ngIf="buttons(inputword.value)"><button class="uk-button uk-button-primary" (click)="addWord(inputword)">Skip</button></span>
+                        <div *ngIf="buttonList && inputword.value && (buttonList.length == 0 || buttonList.length == inputLength + 1)">How many correct letters? <br />
+                        <span *ngFor="#button of buttonList" ><button (click)="onTopButtonClick(inputword, button)" class="uk-button">{{button.name}}</button>&nbsp;</span>
+                        <span *ngIf="buttonList"><button class="uk-button uk-button-primary" (click)="addWord(inputword)">Skip</button></span>
                         </div>
                     </fieldset>
                  </div>
@@ -31,7 +31,7 @@ import {Component, View} from 'angular2/core';
                    <li *ngFor="#word of words">
                    <div class="uk-grid">
                         <div class="uk-width-2-10"><b>{{ word.text }}</b></div>
-                        <div class="uk-width-5-10"><span *ngFor="#button of buttons()" ><button (click)="onButtonClick(word, button)" class="uk-button {{buttonColor(word, button)}}">{{button.name}}</button> </span></div>
+                        <div class="uk-width-5-10"><span *ngFor="#button of buttonList" ><button (click)="onButtonClick(word, button)" class="uk-button {{buttonColor(word, button)}}">{{button.name}}</button> </span></div>
                         <div class="uk-width-2-10 {{checkStatus(word.text, 'color')}}">{{checkStatus(word.text, 'text')}}</div>
                         <div class="uk-width-1-10"><button class="uk-button uk-button-danger" (click)="delete(word)">delete</button></div>
                     </div>
@@ -45,6 +45,8 @@ import {Component, View} from 'angular2/core';
 export class TerminalComponent {
     words      = [];
     wordLength = 0;
+    buttonList = [];
+    inputLength = 0;
 
     showButtons() {
         var buttons = this.buttons();
@@ -183,6 +185,8 @@ export class TerminalComponent {
     }
 
     buttons(word = '') {
+        this.inputLength = word.length;
+
         if (! word && this.words.length === 0) {
             return;
         }
@@ -208,7 +212,9 @@ export class TerminalComponent {
             });
         }
 
-        return buttons;
+        this.buttonList = buttons;
+
+        return this.buttonList;
     }
 
     addWord(element) {
