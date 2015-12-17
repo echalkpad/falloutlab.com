@@ -15,10 +15,21 @@ import {PerksPlannerTableComponent} from './PerksPlannerTableComponent';
             <h1 class="uk-article-title">
                 <h1>Perks Planner</h1>
             </h1>
-            <perks-planner-table [perks]="availablePerks" name="Available Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
-            <perks-planner-table [perks]="blockedPerks" name="Blocked Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
-            <perks-planner-table [perks]="dislikePerks" name="Dislike Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
-            <perks-planner-table [perks]="currentPerks" name="Current Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table>
+            <!-- This is the tabbed navigation containing the toggling elements -->
+            <ul class="uk-tab" data-uk-tab="{connect:'#my-id'}">
+                <li><a href="">Available</a></li>
+                <li><a href="">Blocked</a></li>
+                <li><a href="">Dislike</a></li>
+                <li><a href="">Current</a></li>
+            </ul>
+
+            <!-- This is the container of the content items -->
+            <ul id="my-id" class="uk-switcher uk-margin">
+                <li><perks-planner-table [perks]="availablePerks" name="Available Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table></li>
+                <li><perks-planner-table [perks]="blockedPerks" name="Blocked Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table></li>
+                <li><perks-planner-table [perks]="dislikePerks" name="Dislike Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table></li>
+                <li><perks-planner-table [perks]="currentPerks" name="Current Perks" (like)="onPerkLike($event)" (uncurrent)="onPerkUncurrent($event)" (dislike)="onPerkDislike($event)" (current)="onPerkCurrent($event)"></perks-planner-table></li>
+            </ul>
     `,
     directives: [PerksPlannerTableComponent]
 })

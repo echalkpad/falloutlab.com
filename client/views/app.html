@@ -19,9 +19,7 @@
         <div class="uk-hidden-large">
             <a href="#offcanvas" class="uk-navbar-toggle" data-uk-offcanvas></a>
         </div>
-        <div class="uk-navbar-content uk-navbar-center uk-hidden-large">
-            <a class="tm-logo-small" href="http://yootheme.com/demo/themes/wordpress/2014/vida"><img src="wp-content/uploads/yootheme/logo.svg" width="100" height="35" alt="Logo" class="uk-responsive-height"></a>
-        </div>
+        <div class="uk-navbar-content uk-navbar-center uk-hidden-large">Fallout Lab</div>
     </div>
 </nav>
 <div class="uk-container uk-container-center">
@@ -40,3 +38,20 @@
         </div>
     </div>
 </div>
+
+<div id="offcanvas" class="uk-offcanvas">
+    <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-offcanvas">
+            <li class="uk-parent uk-active" data-uk-dropdown="{}" aria-haspopup="true" aria-expanded="false">
+                <a [routerLink]="['/HomeController']">Terminal Unlock</a>
+            </li>
+            <li class="uk-parent" data-uk-dropdown="{}" aria-haspopup="true" aria-expanded="false">
+                <a [routerLink]="['/PerksPlannerController']">Level up planner</a>
+            </li>
+            <li class="uk-parent" data-uk-dropdown="{}" aria-haspopup="true" aria-expanded="false">
+                <a [routerLink]="['/CheatCodesController']">Cheat Codes</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
