@@ -29,8 +29,7 @@
     "serve-favicon": "^2.0.1",
     "sshpk": "^1.7.1",
     "systemjs": "^0.19.5",
-    "zone.js": "^0.5.10",
-    "reflect-metadata": "^0.1.2",
+    "zone.js": "^0.5.10"
   },
   "devDependencies": {}
 }
